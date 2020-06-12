@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,9 +20,10 @@ namespace Calculator
         public Cal_Main_UI()
         {
             InitializeComponent();
+            
         }
 
-        public void btn_Click(object sender, EventArgs e)
+        public void Num_Btn_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
             string number = btn.Text;
@@ -33,6 +35,16 @@ namespace Calculator
             }
             else
                 label_result.Text = label_result.Text + number; 
+        }
+
+        public void Operator_Btn_Click(object sender ,EventArgs e)
+        {
+            Button btn = sender as Button;
+            Value = Double.Parse(label_result.Text);
+            Operator = char.Parse(btn.Text);
+            label_mem.Text = label_result.Text + btn.Text;
+            label_result.Text = "0";
+            button_equal.Enabled = true;
         }
 
         public void All_Clear(object sender, EventArgs e)
@@ -61,6 +73,40 @@ namespace Calculator
             label_result.Text = "0";
             button_erase.Enabled = false;
             newBut = true;
+        }
+
+        private void Equal_Btn_Click(object sender, EventArgs e)
+        {
+            switch (Operator)
+            {
+                case '+':
+                    label_mem.Text = label_mem.Text + label_result.Text + "=";
+                    label_result.Text = (Value + Double.Parse(label_result.Text)).ToString();
+                    button_equal.Enabled = false;
+                    break;
+                case '-':
+                    label_mem.Text = label_mem.Text + label_result.Text + "=";
+                    label_result.Text = (Value - Double.Parse(label_result.Text)).ToString();
+                    button_equal.Enabled = false;
+                    break;
+                case '×':
+                    label_mem.Text = label_mem.Text + label_result.Text + "=";
+                    label_result.Text = (Value * Double.Parse(label_result.Text)).ToString();
+                    button_equal.Enabled = false;
+                    break;
+                case '÷':
+                    label_mem.Text = label_mem.Text + label_result.Text + "=";
+                    label_result.Text = (Value / Double.Parse(label_result.Text)).ToString();
+                    button_equal.Enabled = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void 프로그램정보ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("호서대학교 20191220 이재원 \nC# 프로그래밍 \n\nBuild : 23");
         }
     }
 }
