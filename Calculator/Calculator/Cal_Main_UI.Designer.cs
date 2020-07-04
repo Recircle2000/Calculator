@@ -415,6 +415,7 @@
             this.button_period.TabIndex = 17;
             this.button_period.Text = ".";
             this.button_period.UseVisualStyleBackColor = false;
+            this.button_period.Click += new System.EventHandler(this.Period_Btn_Click);
             // 
             // button_equal
             // 
@@ -445,7 +446,6 @@
             this.label_result.Name = "label_result";
             this.label_result.Size = new System.Drawing.Size(221, 51);
             this.label_result.TabIndex = 19;
-            this.label_result.Text = "0";
             this.label_result.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label_mem
@@ -649,9 +649,11 @@
             this.Controls.Add(this.button_init);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Cal_Main_UI";
             this.Text = "계산기";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Num_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
