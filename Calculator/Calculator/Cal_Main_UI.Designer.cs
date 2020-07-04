@@ -54,6 +54,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.메뉴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Msg_Box = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,7 +113,7 @@
             this.button_Remainder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Remainder.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Remainder.ForeColor = System.Drawing.Color.Black;
-            this.button_Remainder.Location = new System.Drawing.Point(276, 28);
+            this.button_Remainder.Location = new System.Drawing.Point(276, 32);
             this.button_Remainder.Name = "button_Remainder";
             this.button_Remainder.Size = new System.Drawing.Size(60, 60);
             this.button_Remainder.TabIndex = 2;
@@ -435,7 +441,7 @@
             // 
             this.label_result.AutoEllipsis = true;
             this.label_result.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label_result.Location = new System.Drawing.Point(408, 231);
+            this.label_result.Location = new System.Drawing.Point(421, 250);
             this.label_result.Name = "label_result";
             this.label_result.Size = new System.Drawing.Size(221, 51);
             this.label_result.TabIndex = 19;
@@ -445,7 +451,7 @@
             // label_mem
             // 
             this.label_mem.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label_mem.Location = new System.Drawing.Point(408, 216);
+            this.label_mem.Location = new System.Drawing.Point(426, 239);
             this.label_mem.Name = "label_mem";
             this.label_mem.Size = new System.Drawing.Size(208, 23);
             this.label_mem.TabIndex = 20;
@@ -487,6 +493,7 @@
             this.button2.TabIndex = 22;
             this.button2.Text = "+/-";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Swap_Btn_Click);
             // 
             // menuStrip1
             // 
@@ -505,6 +512,104 @@
             this.메뉴ToolStripMenuItem.Text = "프로그램 정보";
             this.메뉴ToolStripMenuItem.Click += new System.EventHandler(this.프로그램정보ToolStripMenuItem_Click);
             // 
+            // Msg_Box
+            // 
+            this.Msg_Box.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Msg_Box.Location = new System.Drawing.Point(413, 32);
+            this.Msg_Box.Name = "Msg_Box";
+            this.Msg_Box.Size = new System.Drawing.Size(220, 194);
+            this.Msg_Box.TabIndex = 24;
+            // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Location = new System.Drawing.Point(342, 160);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(60, 27);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "MC";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.Location = new System.Drawing.Point(342, 193);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(60, 27);
+            this.button4.TabIndex = 26;
+            this.button4.Text = "MR";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button5.ForeColor = System.Drawing.Color.Black;
+            this.button5.Location = new System.Drawing.Point(342, 226);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(38, 27);
+            this.button5.TabIndex = 27;
+            this.button5.Text = "M+";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button6.ForeColor = System.Drawing.Color.Black;
+            this.button6.Location = new System.Drawing.Point(373, 226);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(34, 27);
+            this.button6.TabIndex = 28;
+            this.button6.Text = "M-";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button7.ForeColor = System.Drawing.Color.Black;
+            this.button7.Location = new System.Drawing.Point(342, 259);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(60, 27);
+            this.button7.TabIndex = 29;
+            this.button7.Text = "MS";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
             // Cal_Main_UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -513,6 +618,12 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(642, 298);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Msg_Box);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label_mem);
@@ -575,6 +686,12 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 메뉴ToolStripMenuItem;
+        private System.Windows.Forms.Label Msg_Box;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }
 
