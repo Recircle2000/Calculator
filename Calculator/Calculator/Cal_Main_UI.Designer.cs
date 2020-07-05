@@ -60,6 +60,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.키보드입력도움말ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,9 +79,10 @@
             this.button_init.Name = "button_init";
             this.button_init.Size = new System.Drawing.Size(60, 27);
             this.button_init.TabIndex = 0;
+            this.button_init.TabStop = false;
             this.button_init.Text = "C";
             this.button_init.UseVisualStyleBackColor = false;
-            this.button_init.Click += new System.EventHandler(this.All_Clear);
+            this.button_init.Click += new System.EventHandler(this.AllClear_btn_Click);
             // 
             // button_erase
             // 
@@ -98,9 +100,10 @@
             this.button_erase.Name = "button_erase";
             this.button_erase.Size = new System.Drawing.Size(60, 60);
             this.button_erase.TabIndex = 1;
+            this.button_erase.TabStop = false;
             this.button_erase.Text = "←";
             this.button_erase.UseVisualStyleBackColor = false;
-            this.button_erase.Click += new System.EventHandler(this.button_erase_Click);
+            this.button_erase.Click += new System.EventHandler(this.Button_Erase_Click);
             // 
             // button_Remainder
             // 
@@ -117,6 +120,7 @@
             this.button_Remainder.Name = "button_Remainder";
             this.button_Remainder.Size = new System.Drawing.Size(60, 60);
             this.button_Remainder.TabIndex = 2;
+            this.button_Remainder.TabStop = false;
             this.button_Remainder.Text = "%";
             this.button_Remainder.UseVisualStyleBackColor = false;
             this.button_Remainder.Click += new System.EventHandler(this.Operator_Btn_Click);
@@ -136,6 +140,7 @@
             this.button_Div.Name = "button_Div";
             this.button_Div.Size = new System.Drawing.Size(60, 60);
             this.button_Div.TabIndex = 3;
+            this.button_Div.TabStop = false;
             this.button_Div.Text = "÷";
             this.button_Div.UseVisualStyleBackColor = false;
             this.button_Div.Click += new System.EventHandler(this.Operator_Btn_Click);
@@ -156,6 +161,7 @@
             this.button_Num_7.Name = "button_Num_7";
             this.button_Num_7.Size = new System.Drawing.Size(60, 60);
             this.button_Num_7.TabIndex = 4;
+            this.button_Num_7.TabStop = false;
             this.button_Num_7.Text = "7";
             this.button_Num_7.UseVisualStyleBackColor = false;
             this.button_Num_7.Click += new System.EventHandler(this.Num_Btn_Click);
@@ -176,6 +182,7 @@
             this.button_Num_8.Name = "button_Num_8";
             this.button_Num_8.Size = new System.Drawing.Size(60, 60);
             this.button_Num_8.TabIndex = 5;
+            this.button_Num_8.TabStop = false;
             this.button_Num_8.Text = "8";
             this.button_Num_8.UseVisualStyleBackColor = false;
             this.button_Num_8.Click += new System.EventHandler(this.Num_Btn_Click);
@@ -196,6 +203,7 @@
             this.button_Num_9.Name = "button_Num_9";
             this.button_Num_9.Size = new System.Drawing.Size(60, 60);
             this.button_Num_9.TabIndex = 6;
+            this.button_Num_9.TabStop = false;
             this.button_Num_9.Text = "9";
             this.button_Num_9.UseVisualStyleBackColor = false;
             this.button_Num_9.Click += new System.EventHandler(this.Num_Btn_Click);
@@ -215,6 +223,7 @@
             this.button_Mul.Name = "button_Mul";
             this.button_Mul.Size = new System.Drawing.Size(60, 60);
             this.button_Mul.TabIndex = 7;
+            this.button_Mul.TabStop = false;
             this.button_Mul.Text = "×";
             this.button_Mul.UseVisualStyleBackColor = false;
             this.button_Mul.Click += new System.EventHandler(this.Operator_Btn_Click);
@@ -235,6 +244,7 @@
             this.button_Num_4.Name = "button_Num_4";
             this.button_Num_4.Size = new System.Drawing.Size(60, 60);
             this.button_Num_4.TabIndex = 8;
+            this.button_Num_4.TabStop = false;
             this.button_Num_4.Text = "4";
             this.button_Num_4.UseVisualStyleBackColor = false;
             this.button_Num_4.Click += new System.EventHandler(this.Num_Btn_Click);
@@ -255,6 +265,7 @@
             this.button_Num_5.Name = "button_Num_5";
             this.button_Num_5.Size = new System.Drawing.Size(60, 60);
             this.button_Num_5.TabIndex = 9;
+            this.button_Num_5.TabStop = false;
             this.button_Num_5.Text = "5";
             this.button_Num_5.UseVisualStyleBackColor = false;
             this.button_Num_5.Click += new System.EventHandler(this.Num_Btn_Click);
@@ -275,6 +286,7 @@
             this.button_Num_6.Name = "button_Num_6";
             this.button_Num_6.Size = new System.Drawing.Size(60, 60);
             this.button_Num_6.TabIndex = 10;
+            this.button_Num_6.TabStop = false;
             this.button_Num_6.Text = "6";
             this.button_Num_6.UseVisualStyleBackColor = false;
             this.button_Num_6.Click += new System.EventHandler(this.Num_Btn_Click);
@@ -294,6 +306,7 @@
             this.button_Sub.Name = "button_Sub";
             this.button_Sub.Size = new System.Drawing.Size(60, 60);
             this.button_Sub.TabIndex = 11;
+            this.button_Sub.TabStop = false;
             this.button_Sub.Text = "-";
             this.button_Sub.UseVisualStyleBackColor = false;
             this.button_Sub.Click += new System.EventHandler(this.Operator_Btn_Click);
@@ -314,6 +327,7 @@
             this.button_Num_1.Name = "button_Num_1";
             this.button_Num_1.Size = new System.Drawing.Size(60, 60);
             this.button_Num_1.TabIndex = 12;
+            this.button_Num_1.TabStop = false;
             this.button_Num_1.Text = "1";
             this.button_Num_1.UseVisualStyleBackColor = false;
             this.button_Num_1.Click += new System.EventHandler(this.Num_Btn_Click);
@@ -334,6 +348,7 @@
             this.button_Num_2.Name = "button_Num_2";
             this.button_Num_2.Size = new System.Drawing.Size(60, 60);
             this.button_Num_2.TabIndex = 13;
+            this.button_Num_2.TabStop = false;
             this.button_Num_2.Text = "2";
             this.button_Num_2.UseVisualStyleBackColor = false;
             this.button_Num_2.Click += new System.EventHandler(this.Num_Btn_Click);
@@ -354,6 +369,7 @@
             this.button_Num_3.Name = "button_Num_3";
             this.button_Num_3.Size = new System.Drawing.Size(60, 60);
             this.button_Num_3.TabIndex = 14;
+            this.button_Num_3.TabStop = false;
             this.button_Num_3.Text = "3";
             this.button_Num_3.UseVisualStyleBackColor = false;
             this.button_Num_3.Click += new System.EventHandler(this.Num_Btn_Click);
@@ -373,6 +389,7 @@
             this.button_Add.Name = "button_Add";
             this.button_Add.Size = new System.Drawing.Size(60, 60);
             this.button_Add.TabIndex = 15;
+            this.button_Add.TabStop = false;
             this.button_Add.Text = "+";
             this.button_Add.UseVisualStyleBackColor = false;
             this.button_Add.Click += new System.EventHandler(this.Operator_Btn_Click);
@@ -393,6 +410,7 @@
             this.button_Num_0.Name = "button_Num_0";
             this.button_Num_0.Size = new System.Drawing.Size(126, 60);
             this.button_Num_0.TabIndex = 16;
+            this.button_Num_0.TabStop = false;
             this.button_Num_0.Text = "0";
             this.button_Num_0.UseVisualStyleBackColor = false;
             this.button_Num_0.Click += new System.EventHandler(this.Num_Btn_Click);
@@ -413,6 +431,7 @@
             this.button_period.Name = "button_period";
             this.button_period.Size = new System.Drawing.Size(60, 60);
             this.button_period.TabIndex = 17;
+            this.button_period.TabStop = false;
             this.button_period.Text = ".";
             this.button_period.UseVisualStyleBackColor = false;
             this.button_period.Click += new System.EventHandler(this.Period_Btn_Click);
@@ -434,6 +453,7 @@
             this.button_equal.Name = "button_equal";
             this.button_equal.Size = new System.Drawing.Size(60, 131);
             this.button_equal.TabIndex = 18;
+            this.button_equal.TabStop = false;
             this.button_equal.Text = "=";
             this.button_equal.UseVisualStyleBackColor = false;
             this.button_equal.Click += new System.EventHandler(this.Equal_Btn_Click);
@@ -472,6 +492,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 27);
             this.button1.TabIndex = 21;
+            this.button1.TabStop = false;
             this.button1.Text = "CE";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.CE);
@@ -491,6 +512,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 60);
             this.button2.TabIndex = 22;
+            this.button2.TabStop = false;
             this.button2.Text = "+/-";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Swap_Btn_Click);
@@ -498,12 +520,14 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.메뉴ToolStripMenuItem});
+            this.메뉴ToolStripMenuItem,
+            this.키보드입력도움말ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(642, 24);
             this.menuStrip1.TabIndex = 23;
             this.menuStrip1.Text = "menuStrip1";
+ 
             // 
             // 메뉴ToolStripMenuItem
             // 
@@ -535,6 +559,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(60, 27);
             this.button3.TabIndex = 25;
+            this.button3.TabStop = false;
             this.button3.Text = "MC";
             this.button3.UseVisualStyleBackColor = false;
             // 
@@ -553,6 +578,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(60, 27);
             this.button4.TabIndex = 26;
+            this.button4.TabStop = false;
             this.button4.Text = "MR";
             this.button4.UseVisualStyleBackColor = false;
             // 
@@ -571,6 +597,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(38, 27);
             this.button5.TabIndex = 27;
+            this.button5.TabStop = false;
             this.button5.Text = "M+";
             this.button5.UseVisualStyleBackColor = false;
             // 
@@ -589,6 +616,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(34, 27);
             this.button6.TabIndex = 28;
+            this.button6.TabStop = false;
             this.button6.Text = "M-";
             this.button6.UseVisualStyleBackColor = false;
             // 
@@ -607,8 +635,16 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(60, 27);
             this.button7.TabIndex = 29;
+            this.button7.TabStop = false;
             this.button7.Text = "MS";
             this.button7.UseVisualStyleBackColor = false;
+            // 
+            // 키보드입력도움말ToolStripMenuItem
+            // 
+            this.키보드입력도움말ToolStripMenuItem.Name = "키보드입력도움말ToolStripMenuItem";
+            this.키보드입력도움말ToolStripMenuItem.Size = new System.Drawing.Size(123, 20);
+            this.키보드입력도움말ToolStripMenuItem.Text = "키보드 입력 도움말";
+            this.키보드입력도움말ToolStripMenuItem.Click += new System.EventHandler(this.키보드입력도움말ToolStripMenuItem_Click);
             // 
             // Cal_Main_UI
             // 
@@ -653,6 +689,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Cal_Main_UI";
             this.Text = "계산기";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_Down);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Num_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -694,6 +731,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ToolStripMenuItem 키보드입력도움말ToolStripMenuItem;
     }
 }
 

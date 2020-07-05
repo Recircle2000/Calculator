@@ -52,6 +52,10 @@
     <Compile Include="Cal_Main_UI.Designer.cs">
       <DependentUpon>Cal_Main_UI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cal_Main_UI.Integr_Work.cs">
+      <SubType>Form</SubType>
+      <DependentUpon>Cal_Main_UI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Cal_Main_UI.resx">
