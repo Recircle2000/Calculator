@@ -58,6 +58,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Cal_Main_UI.ko-KR.resx">
+      <DependentUpon>Cal_Main_UI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cal_Main_UI.resx">
       <DependentUpon>Cal_Main_UI.cs</DependentUpon>
     </EmbeddedResource>

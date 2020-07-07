@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calculator
@@ -21,6 +17,10 @@ namespace Calculator
             }
             if (label_result.Text == "0" || newBut == true)
             {
+                if (Check_Equal())
+                {
+                    All_Clear_Work();
+                }
                 label_result.Text = number;
                 newBut = false;
             }
@@ -41,6 +41,79 @@ namespace Calculator
             Check_Calculation_availability();
         }
 
+        public void Equal_Work()
+        {
+
+            switch (Operator)
+            {
+                case "+":
+                    if (Check_Equal())
+                    {
+                        Operator_Work();
+                        label_mem.Text = label_result.Text + Operator + Next_Value + "=";
+                        label_result.Text = (Value + Next_Value).ToString();
+                    }
+                    else
+                    {
+                        Next_Value = Double.Parse(label_result.Text);
+                        label_mem.Text = label_mem.Text + label_result.Text + "=";
+                        label_result.Text = (Value + Double.Parse(label_result.Text)).ToString();
+                    }
+
+
+
+                    //button_equal.Enabled = false;
+                    newBut = true;
+                    break;
+                case "-":
+                    if (Check_Equal())
+                    {
+                        Operator_Work();
+                        label_mem.Text = label_result.Text + Operator + Next_Value + "=";
+                        label_result.Text = (Value - Next_Value).ToString();
+                    }
+                    else
+                    {
+                        Next_Value = Double.Parse(label_result.Text);
+                        label_mem.Text = label_mem.Text + label_result.Text + "=";
+                        label_result.Text = (Value - Double.Parse(label_result.Text)).ToString();
+                    }
+                    newBut = true;
+                    break;
+                case "×":
+                    if (Check_Equal())
+                    {
+                        Operator_Work();
+                        label_mem.Text = label_result.Text + Operator + Next_Value + "=";
+                        label_result.Text = (Value * Next_Value).ToString();
+                    }
+                    else
+                    {
+                        Next_Value = Double.Parse(label_result.Text);
+                        label_mem.Text = label_mem.Text + label_result.Text + "=";
+                        label_result.Text = (Value * Double.Parse(label_result.Text)).ToString();
+                    }
+                    newBut = true;
+                    break;
+                case "÷":
+                    if (Check_Equal())
+                    {
+                        Operator_Work();
+                        label_mem.Text = label_result.Text + Operator + Next_Value + "=";
+                        label_result.Text = (Value / Next_Value).ToString();
+                    }
+                    else
+                    {
+                        Next_Value = Double.Parse(label_result.Text);
+                        label_mem.Text = label_mem.Text + label_result.Text + "=";
+                        label_result.Text = (Value / Double.Parse(label_result.Text)).ToString();
+                    }
+                    newBut = true;
+                    break;
+                default:
+                    break;
+            }
+        }
         //C (Clear)버튼 처리
         public void All_Clear_Work()
         {
@@ -48,7 +121,26 @@ namespace Calculator
             label_mem.Text = "";
             newBut = true;
             button_erase.Enabled = false;
+           // button_equal.Enabled = false;
             Msg_Box.Text = "";
+            Value = 0;
+            Next_Value = 0;
+            Operator = "C";
+        }
+        //CE
+        public void CE_Work()
+        {
+            if (Check_Equal())
+            {
+                All_Clear_Work();
+            }
+            else
+            {
+                label_result.Text = "0";
+                button_erase.Enabled = false;
+                newBut = true;
+                Msg_Box.Text = "";
+            }
         }
 
         //백스페이스 처리
@@ -66,13 +158,7 @@ namespace Calculator
             Check_Calculation_availability();
         }
 
-        public void CE_Work()
-        {
-            label_result.Text = "0";
-            button_erase.Enabled = false;
-            newBut = true;
-            Msg_Box.Text = "";
-        }
+        
 
         public void Swap_Work()
         {
@@ -99,43 +185,41 @@ namespace Calculator
             }
         }
 
-        public void Equal_Work()
+
+
+        //연산이 불가능한 예외가 있을경우 Equal버튼을 비활성화 하는 함수
+        private void Check_Calculation_availability()
         {
-            switch (Operator)
+            if (Operator == "÷" && label_result.Text == "0")
             {
-                case "+":
-                    label_mem.Text = label_mem.Text + label_result.Text + "=";
-                    label_result.Text = (Value + Double.Parse(label_result.Text)).ToString();
-                    button_equal.Enabled = false;
-                    newBut = true;
-                    break;
-                case "-":
-                    label_mem.Text = label_mem.Text + label_result.Text + "=";
-                    label_result.Text = (Value - Double.Parse(label_result.Text)).ToString();
-                    button_equal.Enabled = false;
-                    newBut = true;
-                    break;
-                case "×":
-                    label_mem.Text = label_mem.Text + label_result.Text + "=";
-                    label_result.Text = (Value * Double.Parse(label_result.Text)).ToString();
-                    button_equal.Enabled = false;
-                    newBut = true;
-                    break;
-                case "÷":
-                    label_mem.Text = label_mem.Text + label_result.Text + "=";
-                    label_result.Text = (Value / Double.Parse(label_result.Text)).ToString();
-                    button_equal.Enabled = false;
-                    newBut = true;
-                    break;
-                default:
-                    break;
+                Msg_Box.Text = "0으로 나눌수 없습니다.";
+                button_equal.Enabled = false;
             }
+            else if (label_result.Text == "0" && label_mem.Text == "")
+            {
+                Msg_Box.Text = "수식을 입력해주세요.";
+                button_equal.Enabled = false;
+            }
+        }
+
+        //수식창의 맨 마지막 기호가 '='인지 여부 반환
+        private bool Check_Equal()
+        {
+            if (label_mem.Text.Length == 0)
+            {
+                return false;
+            }
+            else if (label_mem.Text[label_mem.Text.Length - 1] == '=')
+            {
+                return true;
+            }
+            else return false;
         }
 
         // 프로그램 정보 및 빌드번호
         private void 프로그램정보ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("호서대학교 20191220 이재원 \nC# 프로그래밍 \n\nBuild : 5");
+            MessageBox.Show("호서대학교 20191220 이재원 \nC# 프로그래밍 \n\nBuild : 6");
         }
         // 도움말
         private void 키보드입력도움말ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -144,3 +228,4 @@ namespace Calculator
         }
     }
 }
+
