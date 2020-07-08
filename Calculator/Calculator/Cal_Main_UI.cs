@@ -8,12 +8,14 @@ namespace Calculator
     {
         private double Value;
         private double Next_Value;
+        private double Memory;
         private bool newBut;
         private string Operator;
         public Cal_Main_UI()
         {
             InitializeComponent();
             label_result.Text = "0";
+            Memory = 0;
            
         }
 
@@ -34,47 +36,84 @@ namespace Calculator
             Operator = btn.Text;
             Operator_Work();
         }
-        //전체 초기화
+        //전체 초기화_마우스입력
         public void AllClear_btn_Click(object sender, EventArgs e)
         {
             button_equal.Focus();
             All_Clear_Work();
         }
-        
-        // 지우기 버튼을 클릭했을 때의 처리 method
+
+        //백스페이스_마우스입력
         private void Button_Erase_Click(object sender, EventArgs e)
         {
             button_equal.Focus();
             Erase_Work();
         }
 
-        // 마지막 연산기호를 누른 뒤 입력한 숫자를 지우는 method
+        // 마지막 연산기호를 누른 뒤 입력한 숫자제거_마우스입력
         private void CE(object sender, EventArgs e)
         {
             button_equal.Focus();
             CE_Work();
         }
 
-        //최종 연산 수행 메소드
+        //최종 연산 수행_마우스입력
         private void Equal_Btn_Click(object sender, EventArgs e)
         {
             button_equal.Focus();
             Equal_Work();
         }
 
-        //숫자의 음/양을 전환하는 메소드
+        //숫자의 음/양을 전환_마우스입력
         private void Swap_Btn_Click(object sender, EventArgs e)
         {
             button_equal.Focus();
             Swap_Work();
         }
 
-        //소수점을 추가하는 메소드
+        //소수점을 추가_마우스입력
         private void Period_Btn_Click(object sender, EventArgs e)
         {
             button_equal.Focus();
             Period_Work();
         }
+
+        //MC_메모리에서 저장된 숫자를 지운다_마우스입력
+        private void Memory_Clear_Btn_Click(object sender, EventArgs e)
+        {
+            button_equal.Focus();
+            Memory_Clear_Work();
+        }
+
+        //MR_메모리에 저장된 숫자를 화면에 출력_마우스입력
+        private void Memory_Read_Btn_Click(object sender, EventArgs e)
+        {
+            button_equal.Focus();
+            Memory_Read_Work();
+        }
+
+        //M+_메모리에 저장된 숫자에 화면의 숫자를 더한다_마우스입력
+        private void Memory_Plus_Btn_Click(object sender, EventArgs e)
+        {
+            button_equal.Focus();
+            Memory_Plus_Work();
+        }
+
+        //M-_메모리에 저장된 숫자에 화면의 숫자를 뺀다_마우스입력
+        private void Memory_Minus_Btn_Click(object sender, EventArgs e)
+        {
+            button_equal.Focus();
+            Memory_Minus_Work();
+        }
+
+        //MS_메모리에 숫자를 저장한다_마우스입력
+        private void Memory_Save_Btn_Click(object sender, EventArgs e)
+        {
+            button_equal.Focus();
+            Memory_Save_Work();
+        }
+
+
 
         //키보드 입력 통합 처리
         private void Num_KeyDown(object sender, KeyPressEventArgs e)
@@ -124,8 +163,7 @@ namespace Calculator
                     Equal_Work();
                 }
             }
-            else
-                Msg_Box.Text = "올바르지않은 입력. \n키보드 입력시 도움말을 참조 하세요. ";
+            
             
         }
 
@@ -149,24 +187,42 @@ namespace Calculator
                     Period_Work(); 
                     break;
 
-               // case Keys.Enter:
-                //    if (button_equal.Enabled==true)
-                //    {
-                //       button_equal.Focus();
-                //       Equal_Work();
-                //    }
-                    
-                //    break;
-
                 default:
+                    if (e.Control&&e.KeyCode==Keys.R)
+                    {
+                        button_equal.Focus();
+                        Memory_Read_Work();
+                    }
+                    else if (e.Control && e.KeyCode == Keys.L)
+                    {
+                        button_equal.Focus();
+                        Memory_Clear_Work();
+                    }
+                    else if (e.Control && e.KeyCode == Keys.P)
+                    {
+                        button_equal.Focus();
+                        Memory_Plus_Work();
+
+                    }
+                    else if (e.Control && e.KeyCode == Keys.Q)
+                    {
+                        button_equal.Focus();
+                        Memory_Minus_Work();
+                    }
+                    else if (e.Control && e.KeyCode == Keys.M)
+                    {
+                        button_equal.Focus();
+                        Memory_Save_Work();
+                    }
                     break;
             }
            
         }
 
-        
-
-
-       
+        private void Percent_Btn_Click(object sender, EventArgs e)
+        {
+            button_equal.Focus();
+            Percent_Work();
+        }
     }
 }

@@ -56,11 +56,12 @@
             this.메뉴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.키보드입력도움말ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Msg_Box = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.button_MC = new System.Windows.Forms.Button();
+            this.button_MR = new System.Windows.Forms.Button();
+            this.button_MP = new System.Windows.Forms.Button();
+            this.button_MM = new System.Windows.Forms.Button();
+            this.button_MS = new System.Windows.Forms.Button();
+            this.Label_Memory = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,7 +108,7 @@
             this.button_Remainder.Name = "button_Remainder";
             this.button_Remainder.TabStop = false;
             this.button_Remainder.UseVisualStyleBackColor = false;
-            this.button_Remainder.Click += new System.EventHandler(this.Operator_Btn_Click);
+            this.button_Remainder.Click += new System.EventHandler(this.Percent_Btn_Click);
             // 
             // button_Div
             // 
@@ -427,75 +428,85 @@
             resources.ApplyResources(this.Msg_Box, "Msg_Box");
             this.Msg_Box.Name = "Msg_Box";
             // 
-            // button3
+            // button_MC
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Name = "button3";
-            this.button3.TabStop = false;
-            this.button3.UseVisualStyleBackColor = false;
+            this.button_MC.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.button_MC, "button_MC");
+            this.button_MC.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_MC.FlatAppearance.BorderSize = 0;
+            this.button_MC.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
+            this.button_MC.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button_MC.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.button_MC.ForeColor = System.Drawing.Color.Black;
+            this.button_MC.Name = "button_MC";
+            this.button_MC.TabStop = false;
+            this.button_MC.UseVisualStyleBackColor = false;
+            this.button_MC.Click += new System.EventHandler(this.Memory_Clear_Btn_Click);
             // 
-            // button4
+            // button_MR
             // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Name = "button4";
-            this.button4.TabStop = false;
-            this.button4.UseVisualStyleBackColor = false;
+            this.button_MR.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.button_MR, "button_MR");
+            this.button_MR.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_MR.FlatAppearance.BorderSize = 0;
+            this.button_MR.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
+            this.button_MR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button_MR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.button_MR.ForeColor = System.Drawing.Color.Black;
+            this.button_MR.Name = "button_MR";
+            this.button_MR.TabStop = false;
+            this.button_MR.UseVisualStyleBackColor = false;
+            this.button_MR.Click += new System.EventHandler(this.Memory_Read_Btn_Click);
             // 
-            // button5
+            // button_MP
             // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            resources.ApplyResources(this.button5, "button5");
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Name = "button5";
-            this.button5.TabStop = false;
-            this.button5.UseVisualStyleBackColor = false;
+            this.button_MP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_MP.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_MP.FlatAppearance.BorderSize = 0;
+            this.button_MP.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
+            this.button_MP.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button_MP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.button_MP, "button_MP");
+            this.button_MP.ForeColor = System.Drawing.Color.Black;
+            this.button_MP.Name = "button_MP";
+            this.button_MP.TabStop = false;
+            this.button_MP.UseVisualStyleBackColor = false;
+            this.button_MP.Click += new System.EventHandler(this.Memory_Plus_Btn_Click);
             // 
-            // button6
+            // button_MM
             // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            resources.ApplyResources(this.button6, "button6");
-            this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Name = "button6";
-            this.button6.TabStop = false;
-            this.button6.UseVisualStyleBackColor = false;
+            this.button_MM.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_MM.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_MM.FlatAppearance.BorderSize = 0;
+            this.button_MM.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
+            this.button_MM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button_MM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.button_MM, "button_MM");
+            this.button_MM.ForeColor = System.Drawing.Color.Black;
+            this.button_MM.Name = "button_MM";
+            this.button_MM.TabStop = false;
+            this.button_MM.UseVisualStyleBackColor = false;
+            this.button_MM.Click += new System.EventHandler(this.Memory_Minus_Btn_Click);
             // 
-            // button7
+            // button_MS
             // 
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            resources.ApplyResources(this.button7, "button7");
-            this.button7.ForeColor = System.Drawing.Color.Black;
-            this.button7.Name = "button7";
-            this.button7.TabStop = false;
-            this.button7.UseVisualStyleBackColor = false;
+            this.button_MS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_MS.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_MS.FlatAppearance.BorderSize = 0;
+            this.button_MS.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGray;
+            this.button_MS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button_MS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.button_MS, "button_MS");
+            this.button_MS.ForeColor = System.Drawing.Color.Black;
+            this.button_MS.Name = "button_MS";
+            this.button_MS.TabStop = false;
+            this.button_MS.UseVisualStyleBackColor = false;
+            this.button_MS.Click += new System.EventHandler(this.Memory_Save_Btn_Click);
+            // 
+            // Label_Memory
+            // 
+            resources.ApplyResources(this.Label_Memory, "Label_Memory");
+            this.Label_Memory.Name = "Label_Memory";
             // 
             // Cal_Main_UI
             // 
@@ -503,11 +514,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Label_Memory);
+            this.Controls.Add(this.button_MS);
+            this.Controls.Add(this.button_MM);
+            this.Controls.Add(this.button_MP);
+            this.Controls.Add(this.button_MR);
+            this.Controls.Add(this.button_MC);
             this.Controls.Add(this.Msg_Box);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -575,12 +587,13 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 메뉴ToolStripMenuItem;
         private System.Windows.Forms.Label Msg_Box;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button_MC;
+        private System.Windows.Forms.Button button_MR;
+        private System.Windows.Forms.Button button_MP;
+        private System.Windows.Forms.Button button_MM;
+        private System.Windows.Forms.Button button_MS;
         private System.Windows.Forms.ToolStripMenuItem 키보드입력도움말ToolStripMenuItem;
+        private System.Windows.Forms.Label Label_Memory;
     }
 }
 

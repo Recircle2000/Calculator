@@ -59,9 +59,6 @@ namespace Calculator
                         label_mem.Text = label_mem.Text + label_result.Text + "=";
                         label_result.Text = (Value + Double.Parse(label_result.Text)).ToString();
                     }
-
-
-
                     //button_equal.Enabled = false;
                     newBut = true;
                     break;
@@ -114,6 +111,13 @@ namespace Calculator
                     break;
             }
         }
+
+        //%버튼 처리
+        private void Percent_Work()
+        {
+            label_result.Text = (double.Parse(label_result.Text) / 100).ToString();
+            
+        }
         //C (Clear)버튼 처리
         public void All_Clear_Work()
         {
@@ -121,7 +125,7 @@ namespace Calculator
             label_mem.Text = "";
             newBut = true;
             button_erase.Enabled = false;
-           // button_equal.Enabled = false;
+            // button_equal.Enabled = false;
             Msg_Box.Text = "";
             Value = 0;
             Next_Value = 0;
@@ -158,21 +162,25 @@ namespace Calculator
             Check_Calculation_availability();
         }
 
-        
 
+        //음/양전환
         public void Swap_Work()
         {
-            if (!label_result.Text.Contains("-"))               //해당 문자열에 -가 존재하지 않으면,
+            if (label_result.Text==0.ToString())
+            {
+                return;
+            }
+            else if (!label_result.Text.Contains("-"))               //해당 문자열에 -가 존재하지 않으면,
             {
                 label_result.Text = "-" + label_result.Text; //문자열 앞에 -부호 추가 
             }
 
-            else if (label_result.Text.Contains("-"))         //해당 문자열에 1가 존재하면,
+            else if (label_result.Text.Contains("-"))         //해당 문자열에 -가 존재하면,
             {
                 label_result.Text = label_result.Text.Substring(1); //문자열의 1번째 자리부터 자름, 즉 -부호를 자름.    
             }
         }
-
+        //소수점 추가
         public void Period_Work()
         {
             if (label_result.Text.Contains(".")) //해당 문자열에 .이 존재하면,
@@ -216,10 +224,69 @@ namespace Calculator
             else return false;
         }
 
+        //MS
+        private void Memory_Save_Work()
+        {
+            Memory = double.Parse(label_result.Text);
+            Display_Memory();
+            newBut = true;
+            Enable_Memory(true);
+        }
+        //MR
+        private void Memory_Read_Work()
+        {
+            label_result.Text = Memory.ToString();
+            newBut = true;
+        }
+        //M+
+        private void Memory_Plus_Work()
+        {
+            Memory += double.Parse(label_result.Text);
+            Display_Memory();
+            newBut = true;
+            Enable_Memory(true);
+        }
+        //M-
+        private void Memory_Minus_Work()
+        {
+            Memory -= double.Parse(label_result.Text);
+            Display_Memory();
+            newBut = true;
+            Enable_Memory(true);
+        }
+        //MC
+        private void Memory_Clear_Work()
+        {
+            Memory = 0;
+            Label_Memory.Text = "";
+            Msg_Box.Text = "메모리 초기화 완료.";
+            newBut = true;
+            Enable_Memory(false);
+        }
+        //메모리 버튼 활성화/비활성화
+        private void Enable_Memory(bool flag)
+        {
+            if (flag==true)
+            {
+                button_MC.Enabled = true;
+                button_MR.Enabled = true;
+            }
+            else if (flag == false)
+            {
+                button_MC.Enabled = false;
+                button_MR.Enabled = false;
+            }
+        }
+
+        private void Display_Memory()
+        {
+            Label_Memory.Text = "메모리값 : " + Memory.ToString();
+        }
+
         // 프로그램 정보 및 빌드번호
         private void 프로그램정보ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("호서대학교 20191220 이재원 \nC# 프로그래밍 \n\nBuild : 6");
+            MessageBox.Show("호서대학교 20191220 이재원 \nC# 프로그래밍 \n\nBuild : 8");
         }
         // 도움말
         private void 키보드입력도움말ToolStripMenuItem_Click(object sender, EventArgs e)
