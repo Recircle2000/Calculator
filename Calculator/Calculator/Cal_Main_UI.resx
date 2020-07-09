@@ -813,18 +813,6 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>26, 22</value>
   </metadata>
-  <data name="메뉴ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 20</value>
-  </data>
-  <data name="메뉴ToolStripMenuItem.Text" xml:space="preserve">
-    <value>프로그램 정보</value>
-  </data>
-  <data name="키보드입력도움말ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 20</value>
-  </data>
-  <data name="키보드입력도움말ToolStripMenuItem.Text" xml:space="preserve">
-    <value>키보드 입력 도움말</value>
-  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -848,6 +836,18 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>30</value>
+  </data>
+  <data name="메뉴ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 20</value>
+  </data>
+  <data name="메뉴ToolStripMenuItem.Text" xml:space="preserve">
+    <value>프로그램 정보</value>
+  </data>
+  <data name="키보드입력도움말ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 20</value>
+  </data>
+  <data name="키보드입력도움말ToolStripMenuItem.Text" xml:space="preserve">
+    <value>키보드 입력 도움말</value>
   </data>
   <data name="Msg_Box.Font" type="System.Drawing.Font, System.Drawing">
     <value>맑은 고딕, 14.25pt, style=Bold</value>
@@ -1070,6 +1070,9 @@
   </data>
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>642, 298</value>

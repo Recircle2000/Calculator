@@ -293,7 +293,7 @@ namespace Calculator
         // 프로그램 정보 및 빌드번호
         private void 프로그램정보ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("호서대학교 20191220 이재원 \nC# 프로그래밍 \n\nBuild : 9");
+            MessageBox.Show("호서대학교 20191220 이재원 \nC# 프로그래밍 \n\nBuild : 10");
         }
         // 도움말
         private void 키보드입력도움말ToolStripMenuItem_Click(object sender, EventArgs e)
