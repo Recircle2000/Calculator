@@ -6,11 +6,12 @@ namespace Calculator
 {
     public partial class Cal_Main_UI : Form
     {
-        private double Value;
-        private double Next_Value;
-        private double Memory;
-        private bool newBut;
-        private string Operator;
+        private double Value; //첫번째로 입력한 값 또는 결과창에있는 값을 기억합니다.
+        private double Next_Value; //두번째로 입력한값을 기억합니다. , 연속되지 않은 계산에만 사용됩니다.
+        private double Memory; //메모리 기억
+        private bool newBut; //입력을 새로 받을지 여부를 판단하는 플래그입니다.
+        private string Operator; //가장 최근 입력한 연산자를 기억합니다.
+        private string Operator_Old;//그 전에 입력된 연산자를 기억합니다.
         public Cal_Main_UI()
         {
             InitializeComponent();
@@ -28,14 +29,23 @@ namespace Calculator
 
         }
 
-        //각 연산자 키를 마우스로 입력했을 때의 처리 method
+        //각 연산자 키를 마우스로 입력했을 때의 처리
         public void Operator_Btn_Click(object sender, EventArgs e)
         {
             button_equal.Focus();
             Button btn = sender as Button;
+            Operator_Old = Operator;
             Operator = btn.Text;
             Operator_Work();
         }
+
+        //Percent 버튼_마우스입력
+        private void Percent_Btn_Click(object sender, EventArgs e)
+        {
+            button_equal.Focus();
+            Percent_Work();
+        }
+
         //전체 초기화_마우스입력
         public void AllClear_btn_Click(object sender, EventArgs e)
         {
@@ -61,7 +71,7 @@ namespace Calculator
         private void Equal_Btn_Click(object sender, EventArgs e)
         {
             button_equal.Focus();
-            Equal_Work();
+            Equal_Work(Operator);
         }
 
         //숫자의 음/양을 전환_마우스입력
@@ -131,14 +141,17 @@ namespace Calculator
                 button_equal.Focus();
                 if (e.KeyChar == '/')
                 {
+                    Operator_Old = Operator;
                     Operator = "÷";
                 }
                 else if (e.KeyChar=='*')
                 {
+                    Operator_Old = Operator;
                     Operator = "×";
                 }
                 else
                 {
+                    Operator_Old = Operator;
                     Operator = e.KeyChar.ToString();
                 }
                 Operator_Work();
@@ -160,7 +173,7 @@ namespace Calculator
                 if (button_equal.Enabled == true)
                 {
                     button_equal.Focus();
-                    Equal_Work();
+                    Equal_Work(Operator);
                 }
             }
             
@@ -214,15 +227,15 @@ namespace Calculator
                         button_equal.Focus();
                         Memory_Save_Work();
                     }
+                    else if ((e.KeyCode == Keys.D5) && e.Shift)
+                    {
+                        button_equal.Focus();
+                        Percent_Work();
+                    }
                     break;
             }
            
         }
-
-        private void Percent_Btn_Click(object sender, EventArgs e)
-        {
-            button_equal.Focus();
-            Percent_Work();
-        }
+        
     }
 }

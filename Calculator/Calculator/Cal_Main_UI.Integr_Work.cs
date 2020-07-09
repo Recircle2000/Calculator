@@ -33,15 +33,21 @@ namespace Calculator
         //통합 연산자 입력 처리
         private void Operator_Work()
         {
-            Value = Double.Parse(label_result.Text);
-            label_mem.Text = Value.ToString() + Operator;
+            //수식창에 연산자가 있는지 여부를 판단하고 숫자 입력이 끝났다고 판단하면, 
+            if ((label_mem.Text.Contains("-") || label_mem.Text.Contains("+") || label_mem.Text.Contains("×") || label_mem.Text.Contains("÷")) && newBut == false)
+            {
+                Equal_Work(Operator_Old);// 수식창에있던 연산자(그 전에 입력한 연산자)를 이용하여 재연산 한 뒤, 코드 마저 실행
+                //숫자 - 연산자 - 숫자 - 연산자 와같이 연속된 계산 가능.
+            }
+            Value = Double.Parse(label_result.Text); //입력한 값을 임시저장.
+            label_mem.Text = Value.ToString() + Operator; //입력한 연산자를 수식창에 출력.
             //label_result.Text = "0";
-            newBut = true;
-            button_equal.Enabled = true;
-            Check_Calculation_availability();
+            newBut = true; //이제 숫자를 새로 받아야함.
+            button_equal.Enabled = true; //이제 연산이 가능.
+            Check_Calculation_availability();//예외 검사
         }
 
-        public void Equal_Work()
+        public void Equal_Work(string Operator)
         {
 
             switch (Operator)
@@ -49,17 +55,18 @@ namespace Calculator
                 case "+":
                     if (Check_Equal())
                     {
-                        Operator_Work();
-                        label_mem.Text = label_result.Text + Operator + Next_Value + "=";
-                        label_result.Text = (Value + Next_Value).ToString();
+                        //연속 계산(=연타)
+                        Operator_Work();//1. 수식창에 =기호가 있으면, 현재 결과창에있는 값을 기억하고 연산자입력을 재처리하기위해 함수돌림.
+                        label_mem.Text = Value + Operator + Next_Value + "="; // 2. 다시 기억한 Value값과 두번째로 입력했던 값을 재처리하여 표시.
+                        label_result.Text = (Value + Next_Value).ToString(); //실제 연산 후, 결과값에 결과만 표기
                     }
                     else
                     {
-                        Next_Value = Double.Parse(label_result.Text);
-                        label_mem.Text = label_mem.Text + label_result.Text + "=";
-                        label_result.Text = (Value + Double.Parse(label_result.Text)).ToString();
+                        //비연속 계산(최초 계산)
+                        Next_Value = Double.Parse(label_result.Text);  //두번째로 입력했던 값을 저장.(=입력이 연속해서 들어왔을때 처리할때만 사용.)
+                        label_mem.Text = label_mem.Text + label_result.Text + "="; // 수식창 처리 
+                        label_result.Text = (Value + Double.Parse(label_result.Text)).ToString(); //결과값 출력
                     }
-                    //button_equal.Enabled = false;
                     newBut = true;
                     break;
                 case "-":
@@ -286,12 +293,13 @@ namespace Calculator
         // 프로그램 정보 및 빌드번호
         private void 프로그램정보ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("호서대학교 20191220 이재원 \nC# 프로그래밍 \n\nBuild : 8");
+            MessageBox.Show("호서대학교 20191220 이재원 \nC# 프로그래밍 \n\nBuild : 9");
         }
         // 도움말
         private void 키보드입력도움말ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Number = Numpad\nOperator = Operator\nBackspace = Backspace\nC = ESC\nCE = Del\nSwap +/ - = F9\nDecimal = .\nEqual = Enter\nMC = Ctrl + L\nMR = Ctrl + R\nM + = Crtl + P\nM - = Ctrl + Q\nMS = Ctrl + M");
+            Keyboard_Help Help_ = new Keyboard_Help();
+            Help_.Show();
         }
     }
 }
