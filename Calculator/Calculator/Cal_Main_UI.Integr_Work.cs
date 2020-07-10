@@ -5,6 +5,12 @@ namespace Calculator
 {
     public partial class Cal_Main_UI : Form
     {
+        private double Value; //첫번째로 입력한 값 또는 결과창에있는 값을 기억합니다.
+        private double Next_Value; //두번째로 입력한값을 기억합니다. , 연속되지 않은 계산에만 사용됩니다.
+        private double Memory; //메모리 기억
+        private bool newBut; //입력을 새로 받을지 여부를 판단하는 플래그입니다.
+        private string Operator; //가장 최근 입력한 연산자를 기억합니다.
+        private string Operator_Old;//그 전에 입력된 연산자를 기억합니다.
 
         //통합 숫자 입력 처리
         private void Num_Work(string number)
@@ -152,7 +158,8 @@ namespace Calculator
                 newBut = true;
                 Msg_Box.Text = "";
             }
-        }
+        }//수식창에 =기호가 있는경우는 전체초기화,
+        //그외에는 결과창만 초기화해주고 새로운 입력을 받습니다.
 
         //백스페이스 처리
         public void Erase_Work()
@@ -293,7 +300,7 @@ namespace Calculator
         // 프로그램 정보 및 빌드번호
         private void 프로그램정보ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("호서대학교 20191220 이재원 \nC# 프로그래밍 \n\nBuild : 10");
+            MessageBox.Show("호서대학교 20191220 이재원 \nC# 프로그래밍 \n\nBuild : 11");
         }
         // 도움말
         private void 키보드입력도움말ToolStripMenuItem_Click(object sender, EventArgs e)

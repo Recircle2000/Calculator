@@ -6,12 +6,7 @@ namespace Calculator
 {
     public partial class Cal_Main_UI : Form
     {
-        private double Value; //첫번째로 입력한 값 또는 결과창에있는 값을 기억합니다.
-        private double Next_Value; //두번째로 입력한값을 기억합니다. , 연속되지 않은 계산에만 사용됩니다.
-        private double Memory; //메모리 기억
-        private bool newBut; //입력을 새로 받을지 여부를 판단하는 플래그입니다.
-        private string Operator; //가장 최근 입력한 연산자를 기억합니다.
-        private string Operator_Old;//그 전에 입력된 연산자를 기억합니다.
+        
         public Cal_Main_UI()
         {
             InitializeComponent();
@@ -42,6 +37,8 @@ namespace Calculator
         //Percent 버튼_마우스입력
         private void Percent_Btn_Click(object sender, EventArgs e)
         {
+            //마우스로 입력시 해당 버튼으로 포커스가 이동하여 엔터(기능 : =)키를 누르면 기능이 작동하지않고,
+            //포커스된 버튼이 대신 눌리는 이슈가있어 부득이하게 수동으로 equal버튼에 포커스를 맞춤.
             button_equal.Focus();
             Percent_Work();
         }
@@ -128,17 +125,15 @@ namespace Calculator
         //키보드 입력 통합 처리
         private void Num_KeyDown(object sender, KeyPressEventArgs e)
         {
-            Msg_Box.Text = e.KeyChar.ToString();
+            
             //숫자
             if (char.IsDigit(e.KeyChar))
             {
-                button_equal.Focus();
                 Num_Work(e.KeyChar.ToString());
             }
             //연산자
             else if (e.KeyChar == '/' || e.KeyChar == '*' || e.KeyChar == '-' || e.KeyChar == '+' || e.KeyChar == '%')
             {
-                button_equal.Focus();
                 if (e.KeyChar == '/')
                 {
                     Operator_Old = Operator;
@@ -159,20 +154,17 @@ namespace Calculator
             //Backspace
             else if (e.KeyChar == Convert.ToChar(Keys.Back))
             {
-                button_equal.Focus();
                 Erase_Work();
             }
             //Clear
             else if (e.KeyChar == Convert.ToChar(Keys.Escape))
             {
-                button_equal.Focus();
                 All_Clear_Work();
             }
             else if (e.KeyChar == (char)13)
             {
                 if (button_equal.Enabled == true)
                 {
-                    button_equal.Focus();
                     Equal_Work(Operator);
                 }
             }
@@ -186,50 +178,41 @@ namespace Calculator
             switch (e.KeyCode)
             {
                 case Keys.Delete:
-                    button_equal.Focus();
                     CE_Work();
                     break;
 
                 case Keys.F9:
-                    button_equal.Focus();
                     Swap_Work();
                     break;
 
                 case Keys.Decimal:
-                    button_equal.Focus();
                     Period_Work(); 
                     break;
 
                 default:
                     if (e.Control&&e.KeyCode==Keys.R)
                     {
-                        button_equal.Focus();
                         Memory_Read_Work();
                     }
                     else if (e.Control && e.KeyCode == Keys.L)
                     {
-                        button_equal.Focus();
                         Memory_Clear_Work();
                     }
                     else if (e.Control && e.KeyCode == Keys.P)
                     {
-                        button_equal.Focus();
                         Memory_Plus_Work();
 
                     }
                     else if (e.Control && e.KeyCode == Keys.Q)
                     {
-                        button_equal.Focus();
                         Memory_Minus_Work();
                     }
                     else if (e.Control && e.KeyCode == Keys.M)
                     {
-                        button_equal.Focus();
                         Memory_Save_Work();
                     }
                     else if ((e.KeyCode == Keys.D5) && e.Shift)
                     {
-                        button_equal.Focus();
                         Percent_Work();
                     }
                     break;
