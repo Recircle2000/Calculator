@@ -6,7 +6,7 @@ namespace Calculator
     public partial class Cal_Main_UI : Form
     {
         private double Value; //첫번째로 입력한 값 또는 결과창에있는 값을 기억합니다.
-        private double Next_Value; //두번째로 입력한값을 기억합니다. , 연속되지 않은 계산에만 사용됩니다.
+        private double Next_Value; //두번째로 입력한값을 기억합니다. 연속되지 않은 계산에만 사용됩니다.
         private double Memory; //메모리 기억
         private bool newBut; //입력을 새로 받을지 여부를 판단하는 플래그입니다.
         private string Operator; //가장 최근 입력한 연산자를 기억합니다.
@@ -216,6 +216,7 @@ namespace Calculator
             {
                 Msg_Box.Text = "0으로 나눌수 없습니다.";
                 button_equal.Enabled = false;
+                button_equal.Focus();
             }
             else if (label_result.Text == "0" && label_mem.Text == "")
             {
